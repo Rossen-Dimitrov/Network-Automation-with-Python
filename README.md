@@ -1,4 +1,4 @@
-##### Working with CSV Files #####
+Working with CSV Files
 #################################
 ## CSV Module
 ## Readind CSV Files
@@ -103,7 +103,7 @@ with open('items.csv', 'a') as csvfile:
     writer.writerow(('spoon', 3, 1.5))
 
 ```
-##### Coding - Pickle #####
+Coding - Pickle
 #################################
 ## Data Serialization and Deserialization with Pickle
 #################################
@@ -126,7 +126,7 @@ with open('friends.dat', 'rb') as f:
     print(obj)          # => {'Dan': (20, 'London', 13242252), 'Maria': [25, 'Madrid', 34232424]}
 ```
 
-##### Coding - JSON #####
+Coding - JSON
 #################################
 ## Data Serialization and Deserialization with JSON
 #################################
