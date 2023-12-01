@@ -3,7 +3,7 @@
 ## CSV Module
 ## Readind CSV Files
 #################################
- 
+```python
 ###CSV File - (airtravel.csv) - attached to this lecture
 # "Month", "1958", "1959", "1960"
 # "JAN",  340,  360,  417
@@ -30,12 +30,13 @@ with open('airtravel.csv', 'r') as csv_file:
     for row in reader:
        print(row)   # row is a list, each field is list element
  
- 
+```
+
 #################################
 ## CSV Module
 ## Writing CSV Files
 #################################
- 
+```python
 ## Importing the module
 import csv
  
@@ -53,12 +54,12 @@ with open('numbers.csv', 'w', newline='') as f:
     for x in range(1, 101):
         writer.writerow([x, x**2, x**3, x**4])
  
- 
+```
 #################################
 ## CSV Module
 ## Using CSV Dialects
 #################################
- 
+```python
 import csv
  
 ## Printing available csv dialects
@@ -101,12 +102,12 @@ with open('items.csv', 'a') as csvfile:
     writer = csv.writer(csvfile, dialect='hashes')
     writer.writerow(('spoon', 3, 1.5))
 
-
+```
 ##### Coding - Pickle #####
 #################################
 ## Data Serialization and Deserialization with Pickle
 #################################
- 
+```python
 import pickle
  
 # Declaring a dictionary
@@ -123,3 +124,4 @@ with open('friends.dat', 'rb') as f:
  
     print(type(obj))    # => dict
     print(obj)          # => {'Dan': (20, 'London', 13242252), 'Maria': [25, 'Madrid', 34232424]}
+```
