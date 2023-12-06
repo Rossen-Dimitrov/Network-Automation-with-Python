@@ -16,8 +16,9 @@ ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy)
 r1 = {'hostname': '192.168.88.10', 'port': 22, 'username': 'ross', 'password': '1212'}
 r2 = {'hostname': '192.168.88.20', 'port': 22, 'username': 'ross', 'password': '1212'}
 r3 = {'hostname': '192.168.88.30', 'port': 22, 'username': 'ross', 'password': '1212'}
+r4 = {'hostname': '192.168.88.40', 'port': 22, 'username': 'ross', 'password': '1212'}
 linux = {'hostname': '192.168.88.50', 'port': 22, 'username': 'ross', 'password': '1212'}
-routers = [r1, r2, r3]
+routers = [r1, r2, r3, r4]
 for router in routers:
     print(f"Connecting to: {router['hostname']}")
 
@@ -25,11 +26,9 @@ for router in routers:
 
     shell = ssh_client.invoke_shell()
     shell.send('conf t\n')
-    shell.send('router ospf 1\n')
-    shell.send('net 0.0.0.0 0.0.0.0 area 0\n')
+    shell.send('ip scp server enable\n')
     shell.send('end\n')
-    shell.send('terminal length 0\n')
-    shell.send('sh ip protocols\n')
+    shell.send('wr\n')
     time.sleep(2)
 
     output = shell.recv(10000)
