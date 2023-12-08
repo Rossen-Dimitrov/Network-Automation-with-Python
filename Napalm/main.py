@@ -1,16 +1,19 @@
-# This is a sample Python script.
+import json
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from napalm import get_network_driver
+
+driver = get_network_driver('ios')
+optional_args = {'secret': 'some_pass'} #enable password
+
+ios_router = driver('192.168.88.10', 'ross', '1212', optional_args=optional_args)
+ios_router.open()
+
+output = ios_router.get_arp_table()
+# for item in output:
+#     print(item)
+
+dump = json.dumps(output, indent=4, sort_keys=True)
+print(dump)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+ios_router.close()
